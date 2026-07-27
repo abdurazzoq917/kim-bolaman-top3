@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+    Kasb testi
+{% endblock %}
+
+
+{% block content %}
+<section class="test-section">
+    <div class="container test-container">
+        <div class="test-heading">
+            <span class="badge">
+                Kasb testi
+            </span>
+
+            <h1>
+                O‘zingizga eng yaqin
+                javobni tanlang
+            </h1>
+
+            <p>
+                Test yakunida sizga mos
+                Top 3 kasb ko‘rsatiladi.
+            </p>
+
+            <div class="progress-wrapper">
+                <div
+                    class="progress-bar"
+                    id="progressBar"
+                ></div>
+            </div>
+
+            <p class="progress-label">
+                <span id="answeredCount">
+                    0
+                </span>
+
+                / {{ questions|length }} ta savol
+            </p>
+        </div>
+
+        {% if error %}
+            <div class="error-box">
+                {{ error }}
+            </div>
+        {% endif %}
+
+        <form
+            id="careerForm"
+            action="/result"
+            method="post"
+        >
+            {% for question in questions %}
+
+                {% set question_index = loop.index0 %}
+
+                <fieldset class="question-card">
+                    <legend>
+                        <span>
+                            {{ loop.index }}
+                        </span>
+
+                        {{ question.text }}
+                    </legend>
+
+                    <div class="answers-grid">
+                        {% for option in question.options %}
+                            <label class="answer-card">
+                                <input
+                                    type="radio"
+                                    name="q_{{ question_index }}"
+                                    value="{{ loop.index0 }}"
+                                    required
+                                >
+
+                                <span class="radio-circle">
+                                </span>
+
+                                <span class="answer-text">
+                                    {{ option.label }}
+                                </span>
+                            </label>
+                        {% endfor %}
+                    </div>
+                </fieldset>
+            {% endfor %}
+
+            <button
+                class="button primary-button submit-button"
+                type="submit"
+            >
+                Top 3 natijani ko‘rish
+            </button>
+        </form>
+    </div>
+</section>
+{% endblock %}

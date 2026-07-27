@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+    Kim bo‘laman? — 145 ta kasb
+{% endblock %}
+
+
+{% block content %}
+<section class="hero-section">
+    <div class="container hero-grid">
+        <div class="hero-content">
+            <span class="badge">
+                Kengaytirilgan kasb testi
+            </span>
+
+            <h1>
+                {{ career_count }} ta kasb ichidan
+                sizga mos Top 3 kasbni toping
+            </h1>
+
+            <p class="hero-text">
+                {{ question_count }} ta savolga javob bering.
+
+                Har bir savolda 6 ta variant bo‘ladi.
+
+                Kamida 1 ta javobni tanlash kerak.
+                Istasangiz 2 ta variantni ham
+                tanlashingiz mumkin.
+            </p>
+
+            <div class="hero-buttons">
+                <a
+                    class="button primary-button"
+                    href="/test"
+                >
+                    Testni boshlash
+                </a>
+
+                <a
+                    class="button outline-button"
+                    href="#information"
+                >
+                    Qanday ishlaydi?
+                </a>
+            </div>
+
+            <div class="statistics">
+                <div>
+                    <strong>
+                        {{ question_count }}
+                    </strong>
+
+                    <span>
+                        Savol
+                    </span>
+                </div>
+
+                <div>
+                    <strong>
+                        {{ career_count }}
+                    </strong>
+
+                    <span>
+                        Kasb
+                    </span>
+                </div>
+
+                <div>
+                    <strong>
+                        6
+                    </strong>
+
+                    <span>
+                        Variant
+                    </span>
+                </div>
+
+                <div>
+                    <strong>
+                        Top 3
+                    </strong>
+
+                    <span>
+                        Natija
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-card">
+            <div class="hero-emoji">
+                🧭
+            </div>
+
+            <h2>
+                Kasbiy yo‘nalishingizni aniqlang
+            </h2>
+
+            <p>
+                Natijada sizga mos uchta kasb,
+                kerakli ko‘nikmalar va boshlash
+                rejasi ko‘rsatiladi.
+            </p>
+        </div>
+    </div>
+</section>
+
+
+<section
+    class="information-section"
+    id="information"
+>
+    <div class="container">
+        <div class="section-heading">
+            <span class="badge">
+                Test qanday ishlaydi?
+            </span>
+
+            <h2>
+                3 ta oddiy qadam
+            </h2>
+        </div>
+
+        <div class="information-grid">
+            <article class="information-card">
+                <span class="step-number">
+                    01
+                </span>
+
+                <h3>
+                    Savollarga javob bering
+                </h3>
+
+                <p>
+                    30 ta savolning har birida
+                    6 ta javob varianti mavjud.
+                </p>
+            </article>
+
+            <article class="information-card">
+                <span class="step-number">
+                    02
+                </span>
+
+                <h3>
+                    1 yoki 2 ta tanlang
+                </h3>
+
+                <p>
+                    Kamida 1 ta javob majburiy.
+                    Ikkinchi javobni tanlash
+                    majburiy emas.
+                </p>
+            </article>
+
+            <article class="information-card">
+                <span class="step-number">
+                    03
+                </span>
+
+                <h3>
+                    Top 3 natijani oling
+                </h3>
+
+                <p>
+                    Sayt 145 ta kasb orasidan
+                    eng mos uchta kasbni aniqlaydi.
+                </p>
+            </article>
+        </div>
+    </div>
+</section>
+{% endblock %}

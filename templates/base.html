@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Top 3 mos kasbni aniqlovchi test sayti"
+    >
+
+    <title>
+        {% block title %}
+            Kim bo‘laman?
+        {% endblock %}
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', path='/css/style.css') }}"
+    >
+
+    <script
+        src="{{ url_for('static', path='/js/main.js') }}"
+        defer
+    ></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container navigation">
+            <a class="logo" href="/">
+                <span>🧭</span>
+                Kim bo‘laman?
+            </a>
+
+            <nav>
+                <a href="/">
+                    Bosh sahifa
+                </a>
+
+                <a
+                    class="small-button"
+                    href="/test"
+                >
+                    Testni boshlash
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>
+                “Kim bo‘laman?” — qiziqishlaringizni
+                tahlil qiluvchi ko‘ngilochar kasb testi.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
