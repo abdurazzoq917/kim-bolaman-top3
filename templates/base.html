@@ -10,7 +10,7 @@
 
     <meta
         name="description"
-        content="Top 3 mos kasbni aniqlovchi test sayti"
+        content="145 ta kasb ichidan sizga mos Top 3 kasbni aniqlovchi test"
     >
 
     <title>
@@ -21,50 +21,58 @@
 
     <link
         rel="stylesheet"
-        href="{{ url_for('static', path='/css/style.css') }}"
+        href="{{ url_for('static', path='/css/style.css') }}?v=20"
     >
-
-    <script
-        src="{{ url_for('static', path='/js/main.js') }}"
-        defer
-    ></script>
 </head>
 
 <body>
-    <header class="site-header">
-        <div class="container navigation">
-            <a class="logo" href="/">
-                <span>🧭</span>
-                Kim bo‘laman?
+
+<header class="site-header">
+    <div class="container navigation">
+
+        <a
+            href="/"
+            class="logo"
+        >
+            🧭 Kim bo‘laman?
+        </a>
+
+        <nav>
+            <a href="/">
+                Bosh sahifa
             </a>
 
-            <nav>
-                <a href="/">
-                    Bosh sahifa
-                </a>
+            <a
+                href="/test"
+                class="small-button"
+            >
+                Testni boshlash
+            </a>
+        </nav>
 
-                <a
-                    class="small-button"
-                    href="/test"
-                >
-                    Testni boshlash
-                </a>
-            </nav>
-        </div>
-    </header>
+    </div>
+</header>
 
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
 
-    <footer class="site-footer">
-        <div class="container">
-            <p>
-                “Kim bo‘laman?” — qiziqishlaringizni
-                tahlil qiluvchi ko‘ngilochar kasb testi.
-            </p>
-        </div>
-    </footer>
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+
+
+<footer class="site-footer">
+    <div class="container">
+        <p>
+            © 2026 Kim bo‘laman?
+            Barcha huquqlar himoyalangan.
+        </p>
+    </div>
+</footer>
+
+
+<script
+    src="{{ url_for('static', path='/js/script.js') }}?v=20"
+></script>
+
 </body>
 </html>

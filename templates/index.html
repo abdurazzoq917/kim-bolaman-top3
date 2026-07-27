@@ -7,9 +7,12 @@
 
 
 {% block content %}
+
 <section class="hero-section">
     <div class="container hero-grid">
+
         <div class="hero-content">
+
             <span class="badge">
                 Kengaytirilgan kasb testi
             </span>
@@ -21,7 +24,6 @@
 
             <p class="hero-text">
                 {{ question_count }} ta savolga javob bering.
-
                 Har bir savolda 6 ta variant bo‘ladi.
 
                 Kamida 1 ta javobni tanlash kerak.
@@ -30,6 +32,7 @@
             </p>
 
             <div class="hero-buttons">
+
                 <a
                     class="button primary-button"
                     href="/test"
@@ -43,9 +46,12 @@
                 >
                     Qanday ishlaydi?
                 </a>
+
             </div>
 
+
             <div class="statistics">
+
                 <div>
                     <strong>
                         {{ question_count }}
@@ -55,6 +61,7 @@
                         Savol
                     </span>
                 </div>
+
 
                 <div>
                     <strong>
@@ -66,6 +73,7 @@
                     </span>
                 </div>
 
+
                 <div>
                     <strong>
                         6
@@ -76,6 +84,7 @@
                     </span>
                 </div>
 
+
                 <div>
                     <strong>
                         Top 3
@@ -85,10 +94,14 @@
                         Natija
                     </span>
                 </div>
+
             </div>
+
         </div>
 
+
         <div class="hero-card">
+
             <div class="hero-emoji">
                 🧭
             </div>
@@ -102,7 +115,16 @@
                 kerakli ko‘nikmalar va boshlash
                 rejasi ko‘rsatiladi.
             </p>
+
+            <a
+                href="/test"
+                class="button primary-button"
+            >
+                Testni boshlash
+            </a>
+
         </div>
+
     </div>
 </section>
 
@@ -112,7 +134,9 @@
     id="information"
 >
     <div class="container">
+
         <div class="section-heading">
+
             <span class="badge">
                 Test qanday ishlaydi?
             </span>
@@ -120,10 +144,14 @@
             <h2>
                 3 ta oddiy qadam
             </h2>
+
         </div>
 
+
         <div class="information-grid">
+
             <article class="information-card">
+
                 <span class="step-number">
                     01
                 </span>
@@ -133,12 +161,15 @@
                 </h3>
 
                 <p>
-                    30 ta savolning har birida
-                    6 ta javob varianti mavjud.
+                    {{ question_count }} ta savolning
+                    har birida 6 ta javob varianti mavjud.
                 </p>
+
             </article>
 
+
             <article class="information-card">
+
                 <span class="step-number">
                     02
                 </span>
@@ -152,9 +183,12 @@
                     Ikkinchi javobni tanlash
                     majburiy emas.
                 </p>
+
             </article>
 
+
             <article class="information-card">
+
                 <span class="step-number">
                     03
                 </span>
@@ -164,11 +198,53 @@
                 </h3>
 
                 <p>
-                    Sayt 145 ta kasb orasidan
-                    eng mos uchta kasbni aniqlaydi.
+                    Sayt {{ career_count }} ta kasb
+                    orasidan sizga eng mos
+                    uchta kasbni aniqlaydi.
                 </p>
+
             </article>
+
         </div>
+
     </div>
 </section>
+
+
+<section class="test-section">
+
+    <div class="container test-container">
+
+        <div class="test-heading">
+
+            <span class="badge">
+                Kelajagingizni bugun boshlang
+            </span>
+
+            <h1>
+                O‘zingizga mos kasbni topishga tayyormisiz?
+            </h1>
+
+            <p>
+                Testni yakunlang va sizga mos bo‘lgan
+                Top 3 kasbiy yo‘nalishni bilib oling.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a
+                    href="/test"
+                    class="button primary-button"
+                >
+                    Testni hozir boshlash
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
 {% endblock %}

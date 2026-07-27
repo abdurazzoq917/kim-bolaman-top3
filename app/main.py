@@ -1,67 +1,48 @@
 from pathlib import Path
 
 from fastapi import FastAPI, Request
-from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-
-from app.data import CAREERS, DOMAINS, QUESTIONS
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 app = FastAPI(
     title="Kim bo‘laman?",
-    description=(
-        "145 ta kasb orasidan "
-        "Top 3 mos kasbni aniqlovchi test"
-    ),
-    version="5.0.0",
+    description="Kasb tanlash testi",
+    version="1.0.0",
 )
 
 
 app.mount(
     "/static",
     StaticFiles(
-        directory=BASE_DIR / "static",
+        directory=BASE_DIR / "static"
     ),
     name="static",
 )
 
 
 templates = Jinja2Templates(
-    directory=BASE_DIR / "templates",
+    directory=BASE_DIR / "templates"
 )
 
 
-@app.get(
-    "/",
-    response_class=HTMLResponse,
-)
+@app.get("/")
 def home(request: Request):
     return templates.TemplateResponse(
         request=request,
         name="index.html",
-        context={
-            "career_count": len(CAREERS),
-            "question_count": len(QUESTIONS),
-        },
+        context={}
     )
 
 
-@app.get(
-    "/test",
-    response_class=HTMLResponse,
-)
+@app.get("/test")
 def test_page(request: Request):
     return templates.TemplateResponse(
         request=request,
         name="test.html",
-        context={
-            "questions": QUESTIONS,
-            "error": None,
-        },
+        context={}
     )
 
 
