@@ -1,11 +1,16 @@
 document.addEventListener(
     "DOMContentLoaded",
-    () => {
-        const form = document.querySelector(
-            "#careerForm"
-        );
+    function () {
+        const form =
+            document.getElementById(
+                "careerForm"
+            );
 
         if (!form) {
+            console.error(
+                'Xato: id="careerForm" bo‘lgan forma topilmadi.'
+            );
+
             return;
         }
 
@@ -15,20 +20,20 @@ document.addEventListener(
             );
 
         const answeredCountElement =
-            document.querySelector(
-                "#answeredCount"
+            document.getElementById(
+                "answeredCount"
             );
 
         const progressBar =
-            document.querySelector(
-                "#progressBar"
+            document.getElementById(
+                "progressBar"
             );
 
         function updateProgress() {
             let completedQuestions = 0;
 
             questionCards.forEach(
-                (questionCard) => {
+                function (questionCard) {
                     const selectedInputs =
                         questionCard.querySelectorAll(
                             'input[type="checkbox"]:checked'
@@ -39,8 +44,10 @@ document.addEventListener(
                             ".selected-counter strong"
                         );
 
-                    counter.textContent =
-                        selectedInputs.length;
+                    if (counter) {
+                        counter.textContent =
+                            selectedInputs.length;
+                    }
 
                     if (
                         selectedInputs.length >= 1
@@ -50,32 +57,38 @@ document.addEventListener(
                 }
             );
 
-            answeredCountElement.textContent =
-                completedQuestions;
+            if (answeredCountElement) {
+                answeredCountElement.textContent =
+                    completedQuestions;
+            }
 
-            const progressPercent =
-                (
-                    completedQuestions
-                    / questionCards.length
-                )
-                * 100;
+            if (
+                progressBar &&
+                questionCards.length > 0
+            ) {
+                const progressPercent =
+                    (
+                        completedQuestions /
+                        questionCards.length
+                    ) * 100;
 
-            progressBar.style.width =
-                `${progressPercent}%`;
+                progressBar.style.width =
+                    progressPercent + "%";
+            }
         }
 
         questionCards.forEach(
-            (questionCard) => {
+            function (questionCard) {
                 const checkboxes =
                     questionCard.querySelectorAll(
                         'input[type="checkbox"]'
                     );
 
                 checkboxes.forEach(
-                    (checkbox) => {
+                    function (checkbox) {
                         checkbox.addEventListener(
                             "change",
-                            () => {
+                            function () {
                                 const selectedInputs =
                                     questionCard
                                         .querySelectorAll(
@@ -103,7 +116,7 @@ document.addEventListener(
 
         form.addEventListener(
             "submit",
-            (event) => {
+            function (event) {
                 for (
                     let index = 0;
                     index < questionCards.length;
@@ -113,21 +126,20 @@ document.addEventListener(
                         questionCards[index];
 
                     const selectedInputs =
-                        questionCard.querySelectorAll(
-                            'input[type="checkbox"]:checked'
-                        );
+                        questionCard
+                            .querySelectorAll(
+                                'input[type="checkbox"]:checked'
+                            );
 
                     if (
                         selectedInputs.length < 1
                     ) {
                         event.preventDefault();
 
-                        questionCard.scrollIntoView(
-                            {
-                                behavior: "smooth",
-                                block: "center",
-                            }
-                        );
+                        questionCard.scrollIntoView({
+                            behavior: "smooth",
+                            block: "center"
+                        });
 
                         alert(
                             `${index + 1}-savolda kamida 1 ta javob tanlang.`
@@ -140,6 +152,11 @@ document.addEventListener(
                         selectedInputs.length > 2
                     ) {
                         event.preventDefault();
+
+                        questionCard.scrollIntoView({
+                            behavior: "smooth",
+                            block: "center"
+                        });
 
                         alert(
                             `${index + 1}-savolda ko‘pi bilan 2 ta javob tanlang.`
