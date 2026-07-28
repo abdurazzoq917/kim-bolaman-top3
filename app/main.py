@@ -201,14 +201,14 @@ async def result_page(request: Request):
         )
 
     return templates.TemplateResponse(
-        request=request,
-        name="result.html",
-        context={
-            "top_three": top_three,
-            "best": top_three[0],
-            "career_count": len(CAREERS),
-        },
-    )
+    request=request,
+    name="index.html",
+    context={
+        "request": request,
+        "career_count": len(CAREERS),
+        "question_count": len(QUESTIONS),
+    },
+)
 
 
 @app.get("/health")
