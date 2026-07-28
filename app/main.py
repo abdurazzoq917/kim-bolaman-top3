@@ -31,8 +31,8 @@ templates = Jinja2Templates(
 )
 
 
-@app.get("/")
-def home(request: Request):
+@app.get("/", response_class=HTMLResponse)
+async def home(request: Request):
     return templates.TemplateResponse(
         request=request,
         name="index.html",
@@ -47,7 +47,9 @@ def test_page(request: Request):
     return templates.TemplateResponse(
         request=request,
         name="test.html",
-        context={}
+        context={
+            "questions": QUESTIONS,
+        }
     )
 
 
