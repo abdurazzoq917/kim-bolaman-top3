@@ -6,7 +6,6 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from fastapi.middleware.httpsredirect import HTTPSRedirectMiddleware
-from starlette.middleware.proxy_headers import ProxyHeadersMiddleware
 
 from app.data import CAREERS, DOMAINS, QUESTIONS
 
@@ -19,7 +18,7 @@ app = FastAPI(
     version="1.0.0",
 )
 
-app.add_middleware(ProxyHeadersMiddleware)
+
 app.add_middleware(HTTPSRedirectMiddleware)
 app.mount(
     "/static",
@@ -87,16 +86,12 @@ async def result_page(request: Request):
         ):
             return templates.TemplateResponse(
                 request=request,
-                name="test.html",
+                name="result.html",
                 context={
-                    "questions": QUESTIONS,
-                    "error": (
-                        f"{question_index + 1}-savolda "
-                        "kamida 1 ta, ko‘pi bilan "
-                        "2 ta javob tanlang."
-                    ),
+                    "top_three": top_three,
+                    "best": top_three[0],
+                    "career_count": len(CAREERS),
                 },
-                status_code=400,
             )
 
         selection_weight = (
