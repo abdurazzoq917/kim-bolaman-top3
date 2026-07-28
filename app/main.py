@@ -204,3 +204,10 @@ async def result_page(request: Request):
     )
 
 
+@app.get("/health")
+def health_check():
+    return {
+        "status": "ok",
+        "careers": len(CAREERS),
+        "questions": len(QUESTIONS),
+    }
