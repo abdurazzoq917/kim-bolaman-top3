@@ -3,10 +3,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta
         name="description"
@@ -15,13 +12,13 @@
 
     <title>
         {% block title %}
-            Kim bo‘laman?
+        Kim bo'laman?
         {% endblock %}
     </title>
 
     <link
         rel="stylesheet"
-        href="{{ url_for('static', path='/css/style.css') }}?v=20"
+        href="{{ url_for('static', path='css/style.css') }}"
     >
 </head>
 
@@ -30,22 +27,14 @@
 <header class="site-header">
     <div class="container navigation">
 
-        <a
-            href="/"
-            class="logo"
-        >
-            🧭 Kim bo‘laman?
+        <a href="/" class="logo">
+            🧭 Kim bo'laman?
         </a>
 
         <nav>
-            <a href="/">
-                Bosh sahifa
-            </a>
+            <a href="/">Bosh sahifa</a>
 
-            <a
-                href="/test"
-                class="small-button"
-            >
+            <a href="/test" class="small-button">
                 Testni boshlash
             </a>
         </nav>
@@ -53,26 +42,20 @@
     </div>
 </header>
 
-
 <main>
     {% block content %}
     {% endblock %}
 </main>
 
-
 <footer class="site-footer">
     <div class="container">
         <p>
-            © 2026 Kim bo‘laman?
-            Barcha huquqlar himoyalangan.
+            © 2026 Kim bo'laman? Barcha huquqlar himoyalangan.
         </p>
     </div>
 </footer>
 
-
-<script
-    src="{{ url_for('static', path='/js/script.js') }}?v=20"
-></script>
+<script src="{{ url_for('static', path='js/main.js') }}"></script>
 
 </body>
 </html>
