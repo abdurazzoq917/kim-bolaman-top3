@@ -10,8 +10,7 @@ from starlette.middleware.proxy_headers import ProxyHeadersMiddleware
 
 from app.data import CAREERS, DOMAINS, QUESTIONS
 
-app.add_middleware(ProxyHeadersMiddleware)
-app.add_middleware(HTTPSRedirectMiddleware)
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 app = FastAPI(
@@ -20,7 +19,8 @@ app = FastAPI(
     version="1.0.0",
 )
 
-
+app.add_middleware(ProxyHeadersMiddleware)
+app.add_middleware(HTTPSRedirectMiddleware)
 app.mount(
     "/static",
     StaticFiles(
