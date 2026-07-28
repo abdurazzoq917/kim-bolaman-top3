@@ -7,9 +7,12 @@
 
 
 {% block content %}
+
 <section class="result-section">
     <div class="container result-container">
+
         <div class="result-heading">
+
             <span class="badge">
                 Natija tayyor
             </span>
@@ -19,166 +22,238 @@
             </h1>
 
             <p>
-                {{ career_count }} ta kasb
-                orasidan eng yuqori natijalar.
+                {{ career_count }} ta kasb orasidan
+                sizga eng mos natijalar aniqlandi.
             </p>
+
         </div>
 
-        <div class="top-three-grid">
-            {% for result in top_three %}
-                <article
-                    class="career-card position-{{ result.position }}"
-                >
-                    <span class="position-badge">
-                        {{ result.position }}-o‘rin
+
+        {% if top_three %}
+
+            <div class="top-three-grid">
+
+                {% for result in top_three %}
+
+                    <article
+                        class="career-card position-{{ result.position }}"
+                    >
+
+                        <span class="position-badge">
+                            {{ result.position }}-o‘rin
+                        </span>
+
+                        <div
+                            class="career-emoji"
+                            aria-hidden="true"
+                        >
+                            {{ result.emoji }}
+                        </div>
+
+                        <p class="domain-name">
+                            {{ result.domain_name }}
+                        </p>
+
+                        <h2>
+                            {{ result.title }}
+                        </h2>
+
+                        <p class="career-description">
+                            {{ result.description }}
+                        </p>
+
+                        <div class="score-row">
+
+                            <span>
+                                {{ result.score }} ball
+                            </span>
+
+                            <strong>
+                                {{ result.percent }}%
+                            </strong>
+
+                        </div>
+
+                        <div
+                            class="score-track"
+                            role="progressbar"
+                            aria-label="{{ result.title }} moslik darajasi"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                            aria-valuenow="{{ result.percent }}"
+                        >
+                            <div
+                                class="score-fill"
+                                style="width: {{ result.percent }}%;"
+                            ></div>
+                        </div>
+
+                        {% if result.position == 1 %}
+                            <span class="best-result">
+                                Eng mos natija
+                            </span>
+                        {% endif %}
+
+                    </article>
+
+                {% endfor %}
+
+            </div>
+
+
+            {% if best %}
+
+                <article class="details-card">
+
+                    <div class="details-title">
+
+                        <span aria-hidden="true">
+                            {{ best.emoji }}
+                        </span>
+
+                        <div>
+
+                            <p class="domain-name">
+                                1-o‘rin haqida batafsil
+                            </p>
+
+                            <h2>
+                                {{ best.title }}
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <p class="details-description">
+                        {{ best.description }}
+                    </p>
+
+
+                    <div class="details-grid">
+
+                        <div>
+
+                            <h3>
+                                📚 Kerakli ko‘nikmalar
+                            </h3>
+
+                            <ul class="skills-list">
+
+                                {% for skill in best.skills %}
+                                    <li>
+                                        {{ skill }}
+                                    </li>
+                                {% endfor %}
+
+                            </ul>
+
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                🛠 Kerakli vositalar
+                            </h3>
+
+                            <p>
+                                {{ best.tools }}
+                            </p>
+
+                            <h3>
+                                🚀 Birinchi amaliy qadam
+                            </h3>
+
+                            <p>
+                                {{ best.first_project }}
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="roadmap-card">
+
+                    <h2>
+                        Qisqa yo‘l xaritasi
+                    </h2>
+
+                    <div class="roadmap-grid">
+
+                        {% for item in best.roadmap %}
+
+                            <div class="roadmap-item">
+
+                                <span>
+                                    {{ loop.index }}
+                                </span>
+
+                                <p>
+                                    {{ item }}
+                                </p>
+
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+
+                </article>
+
+
+                <div class="final-message">
+
+                    <span aria-hidden="true">
+                        ✨
                     </span>
 
-                    <div class="career-emoji">
-                        {{ result.emoji }}
-                    </div>
-
-                    <p class="domain-name">
-                        {{ result.domain_name }}
-                    </p>
-
-                    <h2>
-                        {{ result.title }}
-                    </h2>
-
-                    <p class="career-description">
-                        {{ result.description }}
-                    </p>
-
-                    <div class="score-row">
-                        <span>
-                            {{ result.score }} ball
-                        </span>
-
+                    <p>
+                        Bu natija sizning javoblaringiz
+                        asosida hisoblandi —
                         <strong>
-                            {{ result.percent }}%
+                            yakuniy tanlov o‘z qo‘lingizda.
                         </strong>
-                    </div>
-
-                    <div class="score-track">
-                        <div
-                            class="score-fill"
-                            style="width: {{ result.percent }}%"
-                        ></div>
-                    </div>
-
-                    {% if result.position == 1 %}
-                        <span class="best-result">
-                            Eng mos natija
-                        </span>
-                    {% endif %}
-                </article>
-            {% endfor %}
-        </div>
-
-        <article class="details-card">
-            <div class="details-title">
-                <span>
-                    {{ best.emoji }}
-                </span>
-
-                <div>
-                    <p class="domain-name">
-                        1-o‘rin haqida batafsil
                     </p>
 
-                    <h2>
-                        {{ best.title }}
-                    </h2>
-                </div>
-            </div>
-
-            <p class="details-description">
-                {{ best.description }}
-            </p>
-
-            <div class="details-grid">
-                <div>
-                    <h3>
-                        📚 Kerakli ko‘nikmalar
-                    </h3>
-
-                    <ul class="skills-list">
-                        {% for skill in best.skills %}
-                            <li>
-                                {{ skill }}
-                            </li>
-                        {% endfor %}
-                    </ul>
                 </div>
 
-                <div>
-                    <h3>
-                        🛠 Kerakli vositalar
-                    </h3>
+            {% endif %}
 
-                    <p>
-                        {{ best.tools }}
-                    </p>
 
-                    <h3>
-                        🚀 Birinchi amaliy qadam
-                    </h3>
+        {% else %}
 
-                    <p>
-                        {{ best.first_project }}
-                    </p>
-                </div>
+            <div class="error-box">
+                Natijani ko‘rsatib bo‘lmadi.
+                Testni qayta ishlab ko‘ring.
             </div>
-        </article>
 
-        <article class="roadmap-card">
-            <h2>
-                Qisqa yo‘l xaritasi
-            </h2>
+        {% endif %}
 
-            <div class="roadmap-grid">
-                {% for item in best.roadmap %}
-                    <div class="roadmap-item">
-                        <span>
-                            {{ loop.index }}
-                        </span>
-
-                        <p>
-                            {{ item }}
-                        </p>
-                    </div>
-                {% endfor %}
-            </div>
-        </article>
-
-        <div class="final-message">
-            <span>
-                ✨
-            </span>
-
-            <p>
-                Men shunchaki taxmin qildim xolos —
-                <strong>
-                    barchasi sening qo‘lingda.
-                </strong>
-            </p>
-        </div>
 
         <div class="result-actions">
+
             <a
                 class="button primary-button"
-                href="/test"
+                href="{{ url_for('test_page') }}"
             >
                 Testni qayta ishlash
             </a>
 
             <a
                 class="button outline-button"
-                href="/"
+                href="{{ url_for('home') }}"
             >
                 Bosh sahifa
             </a>
+
         </div>
+
     </div>
 </section>
+
 {% endblock %}

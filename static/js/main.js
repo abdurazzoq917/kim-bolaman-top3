@@ -1,173 +1,177 @@
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-        const form =
-            document.getElementById(
-                "careerForm"
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("careerForm");
+
+    // main.js boshqa sahifalarda ham ulangan bo‘lishi mumkin.
+    // Forma topilmasa, kod xatosiz to‘xtaydi.
+    if (!form) {
+        return;
+    }
+
+    const questionCards = form.querySelectorAll(".question-card");
+    const answeredCountElement =
+        document.getElementById("answeredCount");
+    const progressBar =
+        document.getElementById("progressBar");
+    const submitButton =
+        form.querySelector('button[type="submit"]');
+
+    let isSubmitting = false;
+
+    function updateProgress() {
+        let completedQuestions = 0;
+
+        questionCards.forEach((questionCard) => {
+            const selectedInputs =
+                questionCard.querySelectorAll(
+                    'input[type="checkbox"]:checked'
+                );
+
+            const counter =
+                questionCard.querySelector(
+                    ".selected-counter strong"
+                );
+
+            if (counter) {
+                counter.textContent =
+                    String(selectedInputs.length);
+            }
+
+            if (selectedInputs.length >= 1) {
+                completedQuestions += 1;
+            }
+        });
+
+        if (answeredCountElement) {
+            answeredCountElement.textContent =
+                String(completedQuestions);
+        }
+
+        if (progressBar && questionCards.length > 0) {
+            const progressPercent =
+                (completedQuestions / questionCards.length) * 100;
+
+            progressBar.style.width =
+                `${progressPercent}%`;
+
+            progressBar.setAttribute(
+                "aria-valuenow",
+                String(Math.round(progressPercent))
+            );
+        }
+    }
+
+    function showQuestionError(questionCard, message) {
+        questionCard.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+        });
+
+        questionCard.classList.add("question-error");
+
+        window.setTimeout(() => {
+            questionCard.classList.remove("question-error");
+        }, 2000);
+
+        alert(message);
+    }
+
+    questionCards.forEach((questionCard) => {
+        const checkboxes =
+            questionCard.querySelectorAll(
+                'input[type="checkbox"]'
             );
 
-        if (!form) {
-            console.error(
-                'Xato: id="careerForm" bo‘lgan forma topilmadi.'
-            );
+        checkboxes.forEach((checkbox) => {
+            checkbox.addEventListener("change", () => {
+                const selectedInputs =
+                    questionCard.querySelectorAll(
+                        'input[type="checkbox"]:checked'
+                    );
 
+                if (selectedInputs.length > 2) {
+                    checkbox.checked = false;
+
+                    alert(
+                        "Bu savolda ko‘pi bilan 2 ta javob tanlash mumkin."
+                    );
+                }
+
+                updateProgress();
+            });
+        });
+    });
+
+    form.addEventListener("submit", (event) => {
+        if (isSubmitting) {
+            event.preventDefault();
             return;
         }
 
-        const questionCards =
-            form.querySelectorAll(
-                ".question-card"
-            );
+        for (
+            let index = 0;
+            index < questionCards.length;
+            index += 1
+        ) {
+            const questionCard = questionCards[index];
 
-        const answeredCountElement =
-            document.getElementById(
-                "answeredCount"
-            );
+            const selectedInputs =
+                questionCard.querySelectorAll(
+                    'input[type="checkbox"]:checked'
+                );
 
-        const progressBar =
-            document.getElementById(
-                "progressBar"
-            );
+            if (selectedInputs.length < 1) {
+                event.preventDefault();
 
-        function updateProgress() {
-            let completedQuestions = 0;
+                showQuestionError(
+                    questionCard,
+                    `${index + 1}-savolda kamida 1 ta javob tanlang.`
+                );
 
-            questionCards.forEach(
-                function (questionCard) {
-                    const selectedInputs =
-                        questionCard.querySelectorAll(
-                            'input[type="checkbox"]:checked'
-                        );
-
-                    const counter =
-                        questionCard.querySelector(
-                            ".selected-counter strong"
-                        );
-
-                    if (counter) {
-                        counter.textContent =
-                            selectedInputs.length;
-                    }
-
-                    if (
-                        selectedInputs.length >= 1
-                    ) {
-                        completedQuestions += 1;
-                    }
-                }
-            );
-
-            if (answeredCountElement) {
-                answeredCountElement.textContent =
-                    completedQuestions;
+                return;
             }
 
-            if (
-                progressBar &&
-                questionCards.length > 0
-            ) {
-                const progressPercent =
-                    (
-                        completedQuestions /
-                        questionCards.length
-                    ) * 100;
+            if (selectedInputs.length > 2) {
+                event.preventDefault();
 
-                progressBar.style.width =
-                    progressPercent + "%";
+                showQuestionError(
+                    questionCard,
+                    `${index + 1}-savolda ko‘pi bilan 2 ta javob tanlang.`
+                );
+
+                return;
             }
         }
 
-        questionCards.forEach(
-            function (questionCard) {
-                const checkboxes =
-                    questionCard.querySelectorAll(
-                        'input[type="checkbox"]'
-                    );
+        isSubmitting = true;
+        form.classList.add("loading");
 
-                checkboxes.forEach(
-                    function (checkbox) {
-                        checkbox.addEventListener(
-                            "change",
-                            function () {
-                                const selectedInputs =
-                                    questionCard
-                                        .querySelectorAll(
-                                            'input[type="checkbox"]:checked'
-                                        );
+        if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.dataset.originalText =
+                submitButton.textContent.trim();
 
-                                if (
-                                    selectedInputs.length > 2
-                                ) {
-                                    checkbox.checked =
-                                        false;
+            submitButton.textContent =
+                "Natija hisoblanmoqda...";
+        }
+    });
 
-                                    alert(
-                                        "Bu savolda ko‘pi bilan 2 ta javob tanlash mumkin."
-                                    );
-                                }
+    // Brauzer orqaga qaytganda tugma bloklangan
+    // holatda qolib ketmasligi uchun.
+    window.addEventListener("pageshow", () => {
+        isSubmitting = false;
+        form.classList.remove("loading");
 
-                                updateProgress();
-                            }
-                        );
-                    }
-                );
+        if (submitButton) {
+            submitButton.disabled = false;
+
+            if (submitButton.dataset.originalText) {
+                submitButton.textContent =
+                    submitButton.dataset.originalText;
             }
-        );
-
-        form.addEventListener(
-            "submit",
-            function (event) {
-                for (
-                    let index = 0;
-                    index < questionCards.length;
-                    index += 1
-                ) {
-                    const questionCard =
-                        questionCards[index];
-
-                    const selectedInputs =
-                        questionCard
-                            .querySelectorAll(
-                                'input[type="checkbox"]:checked'
-                            );
-
-                    if (
-                        selectedInputs.length < 1
-                    ) {
-                        event.preventDefault();
-
-                        questionCard.scrollIntoView({
-                            behavior: "smooth",
-                            block: "center"
-                        });
-
-                        alert(
-                            `${index + 1}-savolda kamida 1 ta javob tanlang.`
-                        );
-
-                        return;
-                    }
-
-                    if (
-                        selectedInputs.length > 2
-                    ) {
-                        event.preventDefault();
-
-                        questionCard.scrollIntoView({
-                            behavior: "smooth",
-                            block: "center"
-                        });
-
-                        alert(
-                            `${index + 1}-savolda ko‘pi bilan 2 ta javob tanlang.`
-                        );
-
-                        return;
-                    }
-                }
-            }
-        );
+        }
 
         updateProgress();
-    }
-);
+    });
+
+    updateProgress();
+});

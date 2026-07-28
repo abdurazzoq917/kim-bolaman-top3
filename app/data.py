@@ -23,7 +23,6 @@ DOMAINS = {
             "focus",
         ],
     },
-
     "data": {
         "name": "Data va sun’iy intellekt",
         "emoji": "📊",
@@ -48,7 +47,6 @@ DOMAINS = {
             "research",
         ],
     },
-
     "design": {
         "name": "Dizayn",
         "emoji": "🎨",
@@ -73,7 +71,6 @@ DOMAINS = {
             "detail",
         ],
     },
-
     "media": {
         "name": "Media va kontent",
         "emoji": "🎬",
@@ -84,10 +81,7 @@ DOMAINS = {
             "Storytelling",
             "Analitika",
         ],
-        "tools": (
-            "CapCut, Premiere Pro, Canva, "
-            "Instagram va Telegram"
-        ),
+        "tools": "CapCut, Premiere Pro, Canva, Instagram va Telegram",
         "roadmap": [
             "Kontent yaratish asoslarini o‘rganing",
             "Qisqa video va postlar tayyorlang",
@@ -101,7 +95,6 @@ DOMAINS = {
             "visual",
         ],
     },
-
     "business": {
         "name": "Biznes va boshqaruv",
         "emoji": "📈",
@@ -112,10 +105,7 @@ DOMAINS = {
             "Rejalashtirish",
             "Moliyaviy savodxonlik",
         ],
-        "tools": (
-            "Excel, CRM, Google Workspace "
-            "va taqdimot vositalari"
-        ),
+        "tools": "Excel, CRM, Google Workspace va taqdimot vositalari",
         "roadmap": [
             "Biznes va savdo asoslarini o‘rganing",
             "Kichik loyiha uchun reja tuzing",
@@ -129,7 +119,6 @@ DOMAINS = {
             "initiative",
         ],
     },
-
     "engineering": {
         "name": "Muhandislik",
         "emoji": "⚙️",
@@ -140,10 +129,7 @@ DOMAINS = {
             "Texnik fikrlash",
             "Amaliy tajriba",
         ],
-        "tools": (
-            "AutoCAD, SolidWorks, Arduino "
-            "va texnik uskunalar"
-        ),
+        "tools": "AutoCAD, SolidWorks, Arduino va texnik uskunalar",
         "roadmap": [
             "Matematika va fizika asoslarini mustahkamlang",
             "Texnik chizma o‘rganing",
@@ -157,7 +143,6 @@ DOMAINS = {
             "precision",
         ],
     },
-
     "health": {
         "name": "Tibbiyot va sog‘liq",
         "emoji": "🩺",
@@ -185,7 +170,6 @@ DOMAINS = {
             "responsibility",
         ],
     },
-
     "education": {
         "name": "Ta’lim",
         "emoji": "📚",
@@ -213,7 +197,6 @@ DOMAINS = {
             "patience",
         ],
     },
-
     "law": {
         "name": "Huquq va davlat",
         "emoji": "⚖️",
@@ -224,10 +207,7 @@ DOMAINS = {
             "Hujjatlar",
             "Mas’uliyat",
         ],
-        "tools": (
-            "Huquqiy ma’lumot bazalari "
-            "va hujjat vositalari"
-        ),
+        "tools": "Huquqiy ma’lumot bazalari va hujjat vositalari",
         "roadmap": [
             "Huquq va jamiyat asoslarini o‘rganing",
             "Mantiqiy bahs qilishni mashq qiling",
@@ -241,7 +221,6 @@ DOMAINS = {
             "responsibility",
         ],
     },
-
     "science": {
         "name": "Ilm-fan",
         "emoji": "🔬",
@@ -269,7 +248,6 @@ DOMAINS = {
             "precision",
         ],
     },
-
     "service": {
         "name": "Xizmat va turizm",
         "emoji": "🌍",
@@ -280,10 +258,7 @@ DOMAINS = {
             "Til",
             "Tezkorlik",
         ],
-        "tools": (
-            "Bron tizimlari, CRM "
-            "va ofis dasturlari"
-        ),
+        "tools": "Bron tizimlari, CRM va ofis dasturlari",
         "roadmap": [
             "Muloqot va xizmat standartlarini o‘rganing",
             "Chet tilini rivojlantiring",
@@ -297,7 +272,6 @@ DOMAINS = {
             "energy",
         ],
     },
-
     "skilled": {
         "name": "Amaliy hunar",
         "emoji": "🛠️",
@@ -346,7 +320,6 @@ CAREER_TITLES = {
         "QA muhandisi",
         "Software arxitektor",
     ],
-
     "data": [
         "Data analitik",
         "Data scientist",
@@ -359,7 +332,6 @@ CAREER_TITLES = {
         "MLOps muhandisi",
         "Statistik",
     ],
-
     "design": [
         "UI/UX dizayner",
         "Grafik dizayner",
@@ -372,7 +344,6 @@ CAREER_TITLES = {
         "Brend dizayneri",
         "Illustrator",
     ],
-
     "media": [
         "SMM mutaxassisi",
         "Kontent menejer",
@@ -387,7 +358,6 @@ CAREER_TITLES = {
         "Reklama kreatori",
         "Media rejalashtiruvchi",
     ],
-
     "business": [
         "Tadbirkor",
         "Biznes analitik",
@@ -405,7 +375,6 @@ CAREER_TITLES = {
         "Auditor",
         "Bank mutaxassisi",
     ],
-
     "engineering": [
         "Robototexnika muhandisi",
         "Mexanik muhandis",
@@ -420,7 +389,6 @@ CAREER_TITLES = {
         "Sanoat muhandisi",
         "Mechatronika muhandisi",
     ],
-
     "health": [
         "Shifokor",
         "Hamshira",
@@ -437,7 +405,6 @@ CAREER_TITLES = {
         "Veterinar",
         "Tez yordam xodimi",
     ],
-
     "education": [
         "Maktab o‘qituvchisi",
         "Ingliz tili o‘qituvchisi",
@@ -450,7 +417,6 @@ CAREER_TITLES = {
         "Ta’lim metodisti",
         "Logoped",
     ],
-
     "law": [
         "Advokat",
         "Yurist",
@@ -463,7 +429,6 @@ CAREER_TITLES = {
         "Bojxona mutaxassisi",
         "Kriminalist",
     ],
-
     "science": [
         "Biolog",
         "Kimyogar",
@@ -476,7 +441,6 @@ CAREER_TITLES = {
         "Ilmiy tadqiqotchi",
         "Meteorolog",
     ],
-
     "service": [
         "Turizm menejeri",
         "Gid",
@@ -491,7 +455,6 @@ CAREER_TITLES = {
         "Tarjimon",
         "Sinxron tarjimon",
     ],
-
     "skilled": [
         "Elektrik",
         "Santexnik",
@@ -664,10 +627,7 @@ def build_careers():
             traits = list(domain["traits"])
 
             for keywords, extra_traits in KEYWORD_TRAITS:
-                if any(
-                    keyword in title_lower
-                    for keyword in keywords
-                ):
+                if any(keyword in title_lower for keyword in keywords):
                     traits.extend(extra_traits)
 
             traits = list(dict.fromkeys(traits))
@@ -709,129 +669,67 @@ OPTION_SETS = [
     [
         {
             "label": "Kod yoki sayt yaratish",
-            "weights": {
-                "software": 3,
-            },
-            "traits": [
-                "logic",
-                "technology",
-            ],
+            "weights": {"software": 3},
+            "traits": ["logic", "technology"],
         },
         {
             "label": "Raqamlarni tahlil qilish",
-            "weights": {
-                "data": 3,
-            },
-            "traits": [
-                "analysis",
-                "numbers",
-            ],
+            "weights": {"data": 3},
+            "traits": ["analysis", "numbers"],
         },
         {
             "label": "Dizayn chizish",
-            "weights": {
-                "design": 3,
-            },
-            "traits": [
-                "creativity",
-                "visual",
-            ],
+            "weights": {"design": 3},
+            "traits": ["creativity", "visual"],
         },
         {
             "label": "Video yoki post yaratish",
-            "weights": {
-                "media": 3,
-            },
-            "traits": [
-                "communication",
-                "creativity",
-            ],
+            "weights": {"media": 3},
+            "traits": ["communication", "creativity"],
         },
         {
             "label": "Biznes reja tuzish",
-            "weights": {
-                "business": 3,
-            },
-            "traits": [
-                "strategy",
-                "leadership",
-            ],
+            "weights": {"business": 3},
+            "traits": ["strategy", "leadership"],
         },
         {
             "label": "Qurilma yig‘ish",
-            "weights": {
-                "engineering": 3,
-            },
-            "traits": [
-                "hands_on",
-                "technology",
-            ],
+            "weights": {"engineering": 3},
+            "traits": ["hands_on", "technology"],
         },
     ],
-
     [
         {
             "label": "Odamlarga tibbiy yordam berish",
-            "weights": {
-                "health": 3,
-            },
-            "traits": [
-                "care",
-                "empathy",
-            ],
+            "weights": {"health": 3},
+            "traits": ["care", "empathy"],
         },
         {
             "label": "Dars tushuntirish",
-            "weights": {
-                "education": 3,
-            },
-            "traits": [
-                "teaching",
-                "patience",
-            ],
+            "weights": {"education": 3},
+            "traits": ["teaching", "patience"],
         },
         {
             "label": "Huquqiy muammoni yechish",
-            "weights": {
-                "law": 3,
-            },
-            "traits": [
-                "justice",
-                "analysis",
-            ],
+            "weights": {"law": 3},
+            "traits": ["justice", "analysis"],
         },
         {
             "label": "Ilmiy tajriba o‘tkazish",
-            "weights": {
-                "science": 3,
-            },
-            "traits": [
-                "research",
-                "curiosity",
-            ],
+            "weights": {"science": 3},
+            "traits": ["research", "curiosity"],
         },
         {
             "label": "Mijozlarga xizmat ko‘rsatish",
-            "weights": {
-                "service": 3,
-            },
-            "traits": [
-                "social",
-                "communication",
-            ],
+            "weights": {"service": 3},
+            "traits": ["social", "communication"],
         },
         {
             "label": "Amaliy ustachilik qilish",
-            "weights": {
-                "skilled": 3,
-            },
-            "traits": [
-                "hands_on",
-                "practical",
-            ],
+            "weights": {"skilled": 3},
+            "traits": ["hands_on", "practical"],
         },
     ],
-
     [
         {
             "label": "Kompyuter va texnologiya",
@@ -839,49 +737,27 @@ OPTION_SETS = [
                 "software": 2,
                 "engineering": 1,
             },
-            "traits": [
-                "technology",
-            ],
+            "traits": ["technology"],
         },
         {
             "label": "Jadval va statistika",
-            "weights": {
-                "data": 3,
-            },
-            "traits": [
-                "numbers",
-                "analysis",
-            ],
+            "weights": {"data": 3},
+            "traits": ["numbers", "analysis"],
         },
         {
             "label": "Rang, shakl va maket",
-            "weights": {
-                "design": 3,
-            },
-            "traits": [
-                "visual",
-                "detail",
-            ],
+            "weights": {"design": 3},
+            "traits": ["visual", "detail"],
         },
         {
             "label": "Kamera va auditoriya",
-            "weights": {
-                "media": 3,
-            },
-            "traits": [
-                "social",
-                "creativity",
-            ],
+            "weights": {"media": 3},
+            "traits": ["social", "creativity"],
         },
         {
             "label": "Savdo va rahbarlik",
-            "weights": {
-                "business": 3,
-            },
-            "traits": [
-                "leadership",
-                "initiative",
-            ],
+            "weights": {"business": 3},
+            "traits": ["leadership", "initiative"],
         },
         {
             "label": "Texnika va mexanizm",
@@ -889,76 +765,41 @@ OPTION_SETS = [
                 "engineering": 2,
                 "skilled": 1,
             },
-            "traits": [
-                "hands_on",
-                "precision",
-            ],
+            "traits": ["hands_on", "precision"],
         },
     ],
-
     [
         {
             "label": "Sog‘liq va biologiya",
-            "weights": {
-                "health": 3,
-            },
-            "traits": [
-                "care",
-                "precision",
-            ],
+            "weights": {"health": 3},
+            "traits": ["care", "precision"],
         },
         {
             "label": "Ta’lim va bolalar",
-            "weights": {
-                "education": 3,
-            },
-            "traits": [
-                "teaching",
-                "empathy",
-            ],
+            "weights": {"education": 3},
+            "traits": ["teaching", "empathy"],
         },
         {
             "label": "Adolat va qonun",
-            "weights": {
-                "law": 3,
-            },
-            "traits": [
-                "justice",
-                "responsibility",
-            ],
+            "weights": {"law": 3},
+            "traits": ["justice", "responsibility"],
         },
         {
             "label": "Kashfiyot va tadqiqot",
-            "weights": {
-                "science": 3,
-            },
-            "traits": [
-                "research",
-                "curiosity",
-            ],
+            "weights": {"science": 3},
+            "traits": ["research", "curiosity"],
         },
         {
             "label": "Sayohat va mehmonlar",
-            "weights": {
-                "service": 3,
-            },
-            "traits": [
-                "social",
-                "energy",
-            ],
+            "weights": {"service": 3},
+            "traits": ["social", "energy"],
         },
         {
             "label": "Asbob bilan ishlash",
-            "weights": {
-                "skilled": 3,
-            },
-            "traits": [
-                "practical",
-                "precision",
-            ],
+            "weights": {"skilled": 3},
+            "traits": ["practical", "precision"],
         },
     ],
-
     [
         {
             "label": "Mantiqiy muammo yechish",
@@ -966,126 +807,66 @@ OPTION_SETS = [
                 "software": 2,
                 "data": 1,
             },
-            "traits": [
-                "logic",
-                "problem_solving",
-            ],
+            "traits": ["logic", "problem_solving"],
         },
         {
             "label": "Aniq hisob-kitob qilish",
-            "weights": {
-                "data": 3,
-            },
-            "traits": [
-                "numbers",
-                "precision",
-            ],
+            "weights": {"data": 3},
+            "traits": ["numbers", "precision"],
         },
         {
             "label": "Chiroyli ko‘rinish yaratish",
-            "weights": {
-                "design": 3,
-            },
-            "traits": [
-                "visual",
-                "creativity",
-            ],
+            "weights": {"design": 3},
+            "traits": ["visual", "creativity"],
         },
         {
             "label": "Ko‘p ko‘riladigan kontent yaratish",
-            "weights": {
-                "media": 3,
-            },
-            "traits": [
-                "social",
-                "communication",
-            ],
+            "weights": {"media": 3},
+            "traits": ["social", "communication"],
         },
         {
             "label": "Jamoani natijaga olib borish",
-            "weights": {
-                "business": 3,
-            },
-            "traits": [
-                "leadership",
-                "strategy",
-            ],
+            "weights": {"business": 3},
+            "traits": ["leadership", "strategy"],
         },
         {
             "label": "Ishlaydigan qurilma yaratish",
-            "weights": {
-                "engineering": 3,
-            },
-            "traits": [
-                "hands_on",
-                "technology",
-            ],
+            "weights": {"engineering": 3},
+            "traits": ["hands_on", "technology"],
         },
     ],
-
     [
         {
             "label": "Inson sog‘ayishiga yordam berish",
-            "weights": {
-                "health": 3,
-            },
-            "traits": [
-                "care",
-                "responsibility",
-            ],
+            "weights": {"health": 3},
+            "traits": ["care", "responsibility"],
         },
         {
             "label": "O‘quvchi mavzuni tushunishi",
-            "weights": {
-                "education": 3,
-            },
-            "traits": [
-                "teaching",
-                "patience",
-            ],
+            "weights": {"education": 3},
+            "traits": ["teaching", "patience"],
         },
         {
             "label": "Adolat qaror topishi",
-            "weights": {
-                "law": 3,
-            },
-            "traits": [
-                "justice",
-                "responsibility",
-            ],
+            "weights": {"law": 3},
+            "traits": ["justice", "responsibility"],
         },
         {
             "label": "Yangi bilim topilishi",
-            "weights": {
-                "science": 3,
-            },
-            "traits": [
-                "research",
-                "analysis",
-            ],
+            "weights": {"science": 3},
+            "traits": ["research", "analysis"],
         },
         {
             "label": "Mijoz mamnun bo‘lishi",
-            "weights": {
-                "service": 3,
-            },
-            "traits": [
-                "social",
-                "empathy",
-            ],
+            "weights": {"service": 3},
+            "traits": ["social", "empathy"],
         },
         {
             "label": "Sifatli tayyor mahsulot",
-            "weights": {
-                "skilled": 3,
-            },
-            "traits": [
-                "precision",
-                "practical",
-            ],
+            "weights": {"skilled": 3},
+            "traits": ["precision", "practical"],
         },
     ],
-
     [
         {
             "label": "Yakka va chuqur fokusda ishlash",
@@ -1093,20 +874,12 @@ OPTION_SETS = [
                 "software": 2,
                 "data": 1,
             },
-            "traits": [
-                "focus",
-                "logic",
-            ],
+            "traits": ["focus", "logic"],
         },
         {
             "label": "Ma’lumotlar bilan ishlash",
-            "weights": {
-                "data": 3,
-            },
-            "traits": [
-                "analysis",
-                "numbers",
-            ],
+            "weights": {"data": 3},
+            "traits": ["analysis", "numbers"],
         },
         {
             "label": "Kreativ studiyada ishlash",
@@ -1114,30 +887,17 @@ OPTION_SETS = [
                 "design": 2,
                 "media": 1,
             },
-            "traits": [
-                "creativity",
-                "visual",
-            ],
+            "traits": ["creativity", "visual"],
         },
         {
             "label": "Katta auditoriya bilan ishlash",
-            "weights": {
-                "media": 3,
-            },
-            "traits": [
-                "social",
-                "communication",
-            ],
+            "weights": {"media": 3},
+            "traits": ["social", "communication"],
         },
         {
             "label": "Jamoani boshqarish",
-            "weights": {
-                "business": 3,
-            },
-            "traits": [
-                "leadership",
-                "organization",
-            ],
+            "weights": {"business": 3},
+            "traits": ["leadership", "organization"],
         },
         {
             "label": "Ustaxona yoki zavodda ishlash",
@@ -1145,199 +905,103 @@ OPTION_SETS = [
                 "engineering": 2,
                 "skilled": 1,
             },
-            "traits": [
-                "hands_on",
-                "practical",
-            ],
+            "traits": ["hands_on", "practical"],
         },
     ],
-
     [
         {
             "label": "Klinika yoki dorixonada ishlash",
-            "weights": {
-                "health": 3,
-            },
-            "traits": [
-                "care",
-                "precision",
-            ],
+            "weights": {"health": 3},
+            "traits": ["care", "precision"],
         },
         {
             "label": "Maktab yoki kursda ishlash",
-            "weights": {
-                "education": 3,
-            },
-            "traits": [
-                "teaching",
-                "communication",
-            ],
+            "weights": {"education": 3},
+            "traits": ["teaching", "communication"],
         },
         {
             "label": "Sud yoki davlat idorasida ishlash",
-            "weights": {
-                "law": 3,
-            },
-            "traits": [
-                "justice",
-                "responsibility",
-            ],
+            "weights": {"law": 3},
+            "traits": ["justice", "responsibility"],
         },
         {
             "label": "Laboratoriyada ishlash",
-            "weights": {
-                "science": 3,
-            },
-            "traits": [
-                "research",
-                "precision",
-            ],
+            "weights": {"science": 3},
+            "traits": ["research", "precision"],
         },
         {
             "label": "Mehmonxona yoki turizmda ishlash",
-            "weights": {
-                "service": 3,
-            },
-            "traits": [
-                "social",
-                "energy",
-            ],
+            "weights": {"service": 3},
+            "traits": ["social", "energy"],
         },
         {
             "label": "Ustaxonada mustaqil ishlash",
-            "weights": {
-                "skilled": 3,
-            },
-            "traits": [
-                "independence",
-                "hands_on",
-            ],
+            "weights": {"skilled": 3},
+            "traits": ["independence", "hands_on"],
         },
     ],
-
     [
         {
             "label": "VS Code va GitHub",
-            "weights": {
-                "software": 3,
-            },
-            "traits": [
-                "technology",
-                "focus",
-            ],
+            "weights": {"software": 3},
+            "traits": ["technology", "focus"],
         },
         {
             "label": "Excel yoki Power BI",
-            "weights": {
-                "data": 3,
-            },
-            "traits": [
-                "numbers",
-                "analysis",
-            ],
+            "weights": {"data": 3},
+            "traits": ["numbers", "analysis"],
         },
         {
             "label": "Figma yoki Photoshop",
-            "weights": {
-                "design": 3,
-            },
-            "traits": [
-                "visual",
-                "detail",
-            ],
+            "weights": {"design": 3},
+            "traits": ["visual", "detail"],
         },
         {
             "label": "Kamera yoki CapCut",
-            "weights": {
-                "media": 3,
-            },
-            "traits": [
-                "creativity",
-                "visual",
-            ],
+            "weights": {"media": 3},
+            "traits": ["creativity", "visual"],
         },
         {
             "label": "CRM va taqdimot vositalari",
-            "weights": {
-                "business": 3,
-            },
-            "traits": [
-                "organization",
-                "communication",
-            ],
+            "weights": {"business": 3},
+            "traits": ["organization", "communication"],
         },
         {
             "label": "Arduino yoki AutoCAD",
-            "weights": {
-                "engineering": 3,
-            },
-            "traits": [
-                "technology",
-                "hands_on",
-            ],
+            "weights": {"engineering": 3},
+            "traits": ["technology", "hands_on"],
         },
     ],
-
     [
         {
             "label": "Tibbiy asboblar",
-            "weights": {
-                "health": 3,
-            },
-            "traits": [
-                "care",
-                "precision",
-            ],
+            "weights": {"health": 3},
+            "traits": ["care", "precision"],
         },
         {
             "label": "Ta’lim platformalari",
-            "weights": {
-                "education": 3,
-            },
-            "traits": [
-                "teaching",
-                "organization",
-            ],
+            "weights": {"education": 3},
+            "traits": ["teaching", "organization"],
         },
         {
             "label": "Huquqiy hujjatlar",
-            "weights": {
-                "law": 3,
-            },
-            "traits": [
-                "analysis",
-                "responsibility",
-            ],
+            "weights": {"law": 3},
+            "traits": ["analysis", "responsibility"],
         },
         {
             "label": "Laboratoriya jihozlari",
-            "weights": {
-                "science": 3,
-            },
-            "traits": [
-                "research",
-                "precision",
-            ],
+            "weights": {"science": 3},
+            "traits": ["research", "precision"],
         },
         {
             "label": "Bron va xizmat tizimlari",
-            "weights": {
-                "service": 3,
-            },
-            "traits": [
-                "social",
-                "organization",
-            ],
+            "weights": {"service": 3},
+            "traits": ["social", "organization"],
         },
         {
             "label": "Kasbga mos asboblar",
-            "weights": {
-                "skilled": 3,
-            },
-            "traits": [
-                "hands_on",
-                "practical",
-            ],
+            "weights": {"skilled": 3},
+            "traits": ["hands_on", "practical"],
         },
     ],
 ]
@@ -1381,14 +1045,9 @@ def build_questions():
     questions = []
 
     for index, question_text in enumerate(QUESTION_STEMS):
-        source_options = OPTION_SETS[
-            index % len(OPTION_SETS)
-        ]
+        source_options = OPTION_SETS[index % len(OPTION_SETS)]
 
-        shift = (
-            index // len(OPTION_SETS)
-        ) * 2
-
+        shift = (index // len(OPTION_SETS)) * 2
         shift %= len(source_options)
 
         rotated_options = (

@@ -1,489 +1,138 @@
-<!DOCTYPE html>
-<html lang="uz">
-<head>
-    <meta charset="UTF-8">
+{% extends "base.html" %}
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
 
-    <meta
-        name="description"
-        content="Kasb tanlash testi"
-    >
+{% block title %}
+    Kim bo‘laman? — Kasb tanlash testi
+{% endblock %}
 
-    <title>Kim bo‘laman? — Kasb testi</title>
 
-    <link
-        rel="stylesheet"
-        href="{{ url_for('static', filename='css/style.css') }}?v=5"
-    >
-</head>
+{% block content %}
 
-<body>
+<section class="test-section">
+    <div class="container test-container">
 
-<header class="site-header">
-    <div class="container navigation">
-        <a href="/" class="logo">
-            🎯 Kim bo‘laman?
-        </a>
+        <div class="test-heading">
 
-        <nav>
-            <a href="/">
-                Bosh sahifa
-            </a>
+            <span class="badge">
+                Kasb tanlash testi
+            </span>
 
-            <a
-                href="#careerForm"
-                class="small-button"
-            >
-                Testni boshlash
-            </a>
-        </nav>
-    </div>
-</header>
+            <h1>
+                Sizga mos kasbni aniqlang
+            </h1>
 
-<main>
-    <section class="test-section">
-        <div class="container test-container">
+            <p>
+                Har bir savolda kamida 1 ta,
+                ko‘pi bilan 2 ta javobni tanlang.
+            </p>
 
-            <div class="test-heading">
-                <span class="badge">
-                    Kasb tanlash testi
+            <p class="progress-text">
+                Javob berilgan savollar:
+
+                <span id="answeredCount">
+                    0
                 </span>
 
-                <h1>
-                    Sizga mos kasbni aniqlang
-                </h1>
+                / {{ questions | length }}
+            </p>
 
-                <p>
-                    Har bir savolda kamida 1 ta,
-                    ko‘pi bilan 2 ta javobni tanlang.
-                </p>
-
-                <p class="progress-text">
-                    Javob berilgan savollar:
-
-                    <span id="answeredCount">
-                        0
-                    </span>
-
-                    / 5
-                </p>
-
-                <div class="progress-wrapper">
-                    <div
-                        class="progress-bar"
-                        id="progressBar"
-                    ></div>
-                </div>
+            <div
+                class="progress-wrapper"
+                role="progressbar"
+                aria-label="Test bajarilish jarayoni"
+                aria-valuemin="0"
+                aria-valuemax="100"
+            >
+                <div
+                    class="progress-bar"
+                    id="progressBar"
+                    aria-valuenow="0"
+                ></div>
             </div>
 
-            <form
-                id="careerForm"
-                method="POST"
-                action=""
+        </div>
+
+
+        {% if error %}
+            <div
+                class="error-box"
+                role="alert"
             >
+                {{ error }}
+            </div>
+        {% endif %}
 
-                <!-- 1-SAVOL -->
 
-                <fieldset class="question-card">
+        <form
+            id="careerForm"
+            method="post"
+            action="{{ url_for('result_page') }}"
+        >
+
+            {% for question in questions %}
+
+                {% set question_index = loop.index0 %}
+
+                <fieldset
+                    class="question-card fade-in"
+                    id="question-{{ loop.index }}"
+                >
+
                     <legend>
-                        <span>1</span>
 
-                        Sizga qaysi faoliyat ko‘proq yoqadi?
+                        <span>
+                            {{ loop.index }}
+                        </span>
+
+                        {{ question.text }}
+
                     </legend>
+
 
                     <p class="selection-note">
                         1 yoki 2 ta javob tanlang
                     </p>
 
+
                     <div class="answers-grid">
 
-                        <label class="answer-card">
-                            <input
-                                type="checkbox"
-                                name="question_1"
-                                value="technology"
-                            >
+                        {% for option in question.options %}
 
-                            <span class="custom-checkbox"></span>
+                            <label class="answer-card">
 
-                            <span>
-                                Kompyuter va texnologiyalar
-                                bilan ishlash
-                            </span>
-                        </label>
+                                <input
+                                    type="checkbox"
+                                    name="q_{{ question_index }}"
+                                    value="{{ loop.index0 }}"
+                                >
 
-                        <label class="answer-card">
-                            <input
-                                type="checkbox"
-                                name="question_1"
-                                value="design"
-                            >
+                                <span
+                                    class="custom-checkbox"
+                                    aria-hidden="true"
+                                ></span>
 
-                            <span class="custom-checkbox"></span>
+                                <span>
+                                    {{ option.label }}
+                                </span>
 
-                            <span>
-                                Rasm, dizayn va ijod
-                                bilan shug‘ullanish
-                            </span>
-                        </label>
+                            </label>
 
-                        <label class="answer-card">
-                            <input
-                                type="checkbox"
-                                name="question_1"
-                                value="communication"
-                            >
-
-                            <span class="custom-checkbox"></span>
-
-                            <span>
-                                Odamlar bilan muloqot qilish
-                            </span>
-                        </label>
-
-                        <label class="answer-card">
-                            <input
-                                type="checkbox"
-                                name="question_1"
-                                value="analysis"
-                            >
-
-                            <span class="custom-checkbox"></span>
-
-                            <span>
-                                Muammolarni tahlil qilish
-                            </span>
-                        </label>
+                        {% endfor %}
 
                     </div>
+
 
                     <p class="selected-counter">
                         Tanlandi:
                         <strong>0</strong>/2
                     </p>
+
                 </fieldset>
 
-                <!-- 2-SAVOL -->
+            {% endfor %}
 
-                <fieldset class="question-card">
-                    <legend>
-                        <span>2</span>
 
-                        Maktabda qaysi fanlar sizga qiziq?
-                    </legend>
-
-                    <p class="selection-note">
-                        1 yoki 2 ta javob tanlang
-                    </p>
-
-                    <div class="answers-grid">
-
-                        <label class="answer-card">
-                            <input
-                                type="checkbox"
-                                name="question_2"
-                                value="math"
-                            >
-
-                            <span class="custom-checkbox"></span>
-
-                            <span>
-                                Matematika va fizika
-                            </span>
-                        </label>
-
-                        <label class="answer-card">
-                            <input
-                                type="checkbox"
-                                name="question_2"
-                                value="art"
-                            >
-
-                            <span class="custom-checkbox"></span>
-
-                            <span>
-                                Rasm va texnologiya
-                            </span>
-                        </label>
-
-                        <label class="answer-card">
-                            <input
-                                type="checkbox"
-                                name="question_2"
-                                value="language"
-                            >
-
-                            <span class="custom-checkbox"></span>
-
-                            <span>
-                                Ona tili va chet tillari
-                            </span>
-                        </label>
-
-                        <label class="answer-card">
-                            <input
-                                type="checkbox"
-                                name="question_2"
-                                value="biology"
-                            >
-
-                            <span class="custom-checkbox"></span>
-
-                            <span>
-                                Biologiya va kimyo
-                            </span>
-                        </label>
-
-                    </div>
-
-                    <p class="selected-counter">
-                        Tanlandi:
-                        <strong>0</strong>/2
-                    </p>
-                </fieldset>
-
-                <!-- 3-SAVOL -->
-
-                <fieldset class="question-card">
-                    <legend>
-                        <span>3</span>
-
-                        Bo‘sh vaqtingizda nima qilishni yoqtirasiz?
-                    </legend>
-
-                    <p class="selection-note">
-                        1 yoki 2 ta javob tanlang
-                    </p>
-
-                    <div class="answers-grid">
-
-                        <label class="answer-card">
-                            <input
-                                type="checkbox"
-                                name="question_3"
-                                value="programming"
-                            >
-
-                            <span class="custom-checkbox"></span>
-
-                            <span>
-                                Dastur va sayt yaratish
-                            </span>
-                        </label>
-
-                        <label class="answer-card">
-                            <input
-                                type="checkbox"
-                                name="question_3"
-                                value="video"
-                            >
-
-                            <span class="custom-checkbox"></span>
-
-                            <span>
-                                Video, rasm va kontent yaratish
-                            </span>
-                        </label>
-
-                        <label class="answer-card">
-                            <input
-                                type="checkbox"
-                                name="question_3"
-                                value="reading"
-                            >
-
-                            <span class="custom-checkbox"></span>
-
-                            <span>
-                                Kitob o‘qish va yangi
-                                ma’lumotlarni o‘rganish
-                            </span>
-                        </label>
-
-                        <label class="answer-card">
-                            <input
-                                type="checkbox"
-                                name="question_3"
-                                value="teamwork"
-                            >
-
-                            <span class="custom-checkbox"></span>
-
-                            <span>
-                                Jamoaviy ishlarda qatnashish
-                            </span>
-                        </label>
-
-                    </div>
-
-                    <p class="selected-counter">
-                        Tanlandi:
-                        <strong>0</strong>/2
-                    </p>
-                </fieldset>
-
-                <!-- 4-SAVOL -->
-
-                <fieldset class="question-card">
-                    <legend>
-                        <span>4</span>
-
-                        Qanday ish muhiti sizga yoqadi?
-                    </legend>
-
-                    <p class="selection-note">
-                        1 yoki 2 ta javob tanlang
-                    </p>
-
-                    <div class="answers-grid">
-
-                        <label class="answer-card">
-                            <input
-                                type="checkbox"
-                                name="question_4"
-                                value="office"
-                            >
-
-                            <span class="custom-checkbox"></span>
-
-                            <span>
-                                Kompyuter qarshisida ishlash
-                            </span>
-                        </label>
-
-                        <label class="answer-card">
-                            <input
-                                type="checkbox"
-                                name="question_4"
-                                value="creative"
-                            >
-
-                            <span class="custom-checkbox"></span>
-
-                            <span>
-                                Erkin va ijodiy muhitda ishlash
-                            </span>
-                        </label>
-
-                        <label class="answer-card">
-                            <input
-                                type="checkbox"
-                                name="question_4"
-                                value="people"
-                            >
-
-                            <span class="custom-checkbox"></span>
-
-                            <span>
-                                Ko‘p odamlar bilan ishlash
-                            </span>
-                        </label>
-
-                        <label class="answer-card">
-                            <input
-                                type="checkbox"
-                                name="question_4"
-                                value="outdoor"
-                            >
-
-                            <span class="custom-checkbox"></span>
-
-                            <span>
-                                Ochiq havoda va harakatda ishlash
-                            </span>
-                        </label>
-
-                    </div>
-
-                    <p class="selected-counter">
-                        Tanlandi:
-                        <strong>0</strong>/2
-                    </p>
-                </fieldset>
-
-                <!-- 5-SAVOL -->
-
-                <fieldset class="question-card">
-                    <legend>
-                        <span>5</span>
-
-                        Kelajakda qanday natijaga erishmoqchisiz?
-                    </legend>
-
-                    <p class="selection-note">
-                        1 yoki 2 ta javob tanlang
-                    </p>
-
-                    <div class="answers-grid">
-
-                        <label class="answer-card">
-                            <input
-                                type="checkbox"
-                                name="question_5"
-                                value="developer"
-                            >
-
-                            <span class="custom-checkbox"></span>
-
-                            <span>
-                                Kuchli dasturchi bo‘lish
-                            </span>
-                        </label>
-
-                        <label class="answer-card">
-                            <input
-                                type="checkbox"
-                                name="question_5"
-                                value="designer"
-                            >
-
-                            <span class="custom-checkbox"></span>
-
-                            <span>
-                                Mashhur dizayner yoki
-                                kontent yaratuvchi bo‘lish
-                            </span>
-                        </label>
-
-                        <label class="answer-card">
-                            <input
-                                type="checkbox"
-                                name="question_5"
-                                value="business"
-                            >
-
-                            <span class="custom-checkbox"></span>
-
-                            <span>
-                                O‘z biznesimni ochish
-                            </span>
-                        </label>
-
-                        <label class="answer-card">
-                            <input
-                                type="checkbox"
-                                name="question_5"
-                                value="teacher"
-                            >
-
-                            <span class="custom-checkbox"></span>
-
-                            <span>
-                                Boshqalarga bilim berish
-                            </span>
-                        </label>
-
-                    </div>
-
-                    <p class="selected-counter">
-                        Tanlandi:
-                        <strong>0</strong>/2
-                    </p>
-                </fieldset>
+            <div class="submit-wrapper">
 
                 <button
                     type="submit"
@@ -492,22 +141,11 @@
                     Natijani ko‘rish
                 </button>
 
-            </form>
-        </div>
-    </section>
-</main>
+            </div>
 
-<footer class="site-footer">
-    <div class="container">
-        <p>
-            © 2026 Kim bo‘laman? Barcha huquqlar himoyalangan.
-        </p>
+        </form>
+
     </div>
-</footer>
+</section>
 
-<script
-    src="{{ url_for('static', filename='js/script.js') }}?v=5"
-></script>
-
-</body>
-</html>
+{% endblock %}

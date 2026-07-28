@@ -3,22 +3,31 @@
 <head>
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <meta
         name="description"
-        content="145 ta kasb ichidan sizga mos Top 3 kasbni aniqlovchi test"
+        content="145 ta kasb ichidan sizga mos Top 3 kasbni aniqlovchi kasb tanlash testi."
     >
+
+    <meta name="theme-color" content="#6c5ce7">
 
     <title>
         {% block title %}
-        Kim bo'laman?
+            Kim bo‘laman?
         {% endblock %}
     </title>
 
     <link
         rel="stylesheet"
-        href="{{ request.url_for('static', path='css/style.css') }}">
+        href="{{ url_for('static', path='/css/style.css') }}"
+    >
+
+    {% block extra_css %}
+    {% endblock %}
 </head>
 
 <body>
@@ -26,14 +35,23 @@
 <header class="site-header">
     <div class="container navigation">
 
-        <a href="/" class="logo">
-            🧭 Kim bo'laman?
+        <a
+            href="{{ url_for('home') }}"
+            class="logo"
+            aria-label="Kim bo‘laman bosh sahifasi"
+        >
+            🧭 Kim bo‘laman?
         </a>
 
-        <nav>
-            <a href="/">Bosh sahifa</a>
+        <nav aria-label="Asosiy navigatsiya">
+            <a href="{{ url_for('home') }}">
+                Bosh sahifa
+            </a>
 
-            <a href="/test" class="small-button">
+            <a
+                href="{{ url_for('test_page') }}"
+                class="small-button"
+            >
                 Testni boshlash
             </a>
         </nav>
@@ -49,12 +67,18 @@
 <footer class="site-footer">
     <div class="container">
         <p>
-            © 2026 Kim bo'laman? Barcha huquqlar himoyalangan.
+            © 2026 Kim bo‘laman? Barcha huquqlar himoyalangan.
         </p>
     </div>
 </footer>
 
-<script src="{{ request.url_for('static', path='js/main.js') }}"></script>
+<script
+    src="{{ url_for('static', path='/js/main.js') }}"
+    defer
+></script>
+
+{% block extra_js %}
+{% endblock %}
 
 </body>
 </html>

@@ -2,7 +2,7 @@
 
 
 {% block title %}
-    Kim bo‘laman? — 145 ta kasb
+    Kim bo‘laman? — {{ career_count }} ta kasb
 {% endblock %}
 
 
@@ -35,7 +35,7 @@
 
                 <a
                     class="button primary-button"
-                    href="/test"
+                    href="{{ url_for('test_page') }}"
                 >
                     Testni boshlash
                 </a>
@@ -117,7 +117,7 @@
             </p>
 
             <a
-                href="/test"
+                href="{{ url_for('test_page') }}"
                 class="button primary-button"
             >
                 Testni boshlash
@@ -221,9 +221,9 @@
                 Kelajagingizni bugun boshlang
             </span>
 
-            <h1>
+            <h2>
                 O‘zingizga mos kasbni topishga tayyormisiz?
-            </h1>
+            </h2>
 
             <p>
                 Testni yakunlang va sizga mos bo‘lgan
@@ -233,7 +233,7 @@
             <div class="hero-buttons">
 
                 <a
-                    href="/test"
+                    href="{{ url_for('test_page') }}"
                     class="button primary-button"
                 >
                     Testni hozir boshlash
