@@ -36,9 +36,11 @@ def home(request: Request):
     return templates.TemplateResponse(
         request=request,
         name="index.html",
-        context={}
+        context={
+            "career_count": len(CAREERS),
+            "question_count": len(QUESTIONS),
+        },
     )
-
 
 @app.get("/test")
 def test_page(request: Request):
