@@ -4,10 +4,14 @@ from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from fastapi.middleware.trustedhost import TrustedHostMiddleware
+from fastapi.middleware.httpsredirect import HTTPSRedirectMiddleware
+from starlette.middleware.proxy_headers import ProxyHeadersMiddleware
 
 from app.data import CAREERS, DOMAINS, QUESTIONS
 
-
+app.add_middleware(ProxyHeadersMiddleware)
+app.add_middleware(HTTPSRedirectMiddleware)
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 app = FastAPI(
@@ -29,7 +33,10 @@ app.mount(
 templates = Jinja2Templates(
     directory=BASE_DIR / "templates"
 )
-
+app.add_middleware(
+    TrustedHostMiddleware,
+    allowed_hosts=["*"],
+)
 
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
