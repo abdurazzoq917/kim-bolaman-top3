@@ -304,3 +304,4 @@ async def health_check():
         "careers": len(CAREERS),
         "questions": len(QUESTIONS),
     }
+
