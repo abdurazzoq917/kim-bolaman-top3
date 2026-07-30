@@ -299,8 +299,3 @@ async def health_check():
     tekshirishi uchun health endpoint.
     """
 
-    return {
-        "status": "ok",
-        "careers": len(CAREERS),
-        "questions": len(QUESTIONS),
-    }
